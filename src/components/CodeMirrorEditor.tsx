@@ -1,6 +1,6 @@
 import React from 'react';
 import CodeMirror from '@uiw/react-codemirror';
-import { javascript } from '@codemirror/lang-javascript';
+import { markdown } from '@codemirror/lang-markdown';
 
 function CodeMirrorEditor() {
   const [value, setValue] = React.useState('// Start coding...');
@@ -13,10 +13,10 @@ function CodeMirrorEditor() {
     <div style={{ height: '100vh', width: '100vw', backgroundColor: 'white' }}>
       <CodeMirror
         value={value}
-        extensions={[javascript()]}
+        extensions={[markdown()]}
         onChange={(newValue) => handleEditorChange(newValue)}
-        theme="none"
-        lineNumbers="false"
+        theme="light"
+        lineNumbers={false}
       />
     </div>
   );
