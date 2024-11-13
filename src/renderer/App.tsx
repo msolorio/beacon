@@ -1,21 +1,16 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import CodeMirrorEditor from '../components/CodeMirrorEditor';
 import TipTapEditor from '../components/TipTapEditor';
+import TestComponent from '../components/TestComponent';
 import './App.css';
 
-export default function App() {
+const App = () => {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <div className="card">
-              <TipTapEditor />
-            </div>
-          }
-        />
+        <Route path="/" element={<TipTapEditor />} />
       </Routes>
     </Router>
   );
-}
+};
+
+export default App;

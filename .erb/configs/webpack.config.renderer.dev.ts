@@ -63,37 +63,28 @@ const configuration: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.s?(c|a)ss$/,
+        test: /\.css$/,
         use: [
           'style-loader',
+          'css-loader',
           {
-            loader: 'css-loader',
+            loader: 'postcss-loader',
             options: {
-              modules: true,
-              sourceMap: true,
-              importLoaders: 1,
+              postcssOptions: {
+                plugins: [require('tailwindcss'), require('autoprefixer')],
+              },
             },
           },
-          'sass-loader',
         ],
-        include: /\.module\.s?(c|a)ss$/,
       },
-      {
-        test: /\.s?css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-        exclude: /\.module\.s?(c|a)ss$/,
-      },
-      // Fonts
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
       },
-      // Images
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
-      // SVG
       {
         test: /\.svg$/,
         use: [
@@ -114,6 +105,7 @@ const configuration: webpack.Configuration = {
       },
     ],
   },
+
   plugins: [
     ...(skipDLLs
       ? []
