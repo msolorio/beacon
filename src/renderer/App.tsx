@@ -8,12 +8,17 @@ const ydocInstance = new Doc();
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={<BlockEditor hasCollab ydoc={ydocInstance} />}
-        />
-      </Routes>
+      <div>
+        <header>
+          <h1>Collaborative Block Editor</h1>
+        </header>
+        <Routes>
+          <Route
+            path="/"
+            element={<BloZkEditor hasCollab ydoc={ydocInstance} />}
+          />
+        </Routes>
+      </div>
     </Router>
   );
 };
