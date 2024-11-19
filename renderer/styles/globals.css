@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    /* @apply bg-gray-900 text-white; */
+    padding: 0 50px;
+  }
+}
+
+@layer components {
+  .btn-blue {
+    @apply text-white font-bold px-4 py-2 rounded bg-blue-600 hover:bg-blue-500;
+  }
+}
+
+/* .tiptap {
+  border: 3px solid #e2e8f0;
+  height: calc(100vh - 200px);
+  text-align: left;
+  padding: 20px;
+  overflow: scroll;
+
+  h1 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  h2 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  p {
+    margin: 0 0 .5em;
+  }
+
+  li p {
+    margin: 0;
+  }
+
+  /* Task list specific styles */
+  /* ul[data-type="taskList"] {
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+
+    li {
+      align-items: flex-start;
+      display: flex;
+
+      > label {
+        flex: 0 0 auto;
+        margin-right: 0.5rem;
+        user-select: none;
+      }
+
+      > div {
+        flex: 1 1 auto;
+      }
+    }
+
+    input[type="checkbox"] {
+      cursor: pointer;
+    }
+
+    ul[data-type="taskList"] {
+      margin: 0;
+    }
+  }
+} */
