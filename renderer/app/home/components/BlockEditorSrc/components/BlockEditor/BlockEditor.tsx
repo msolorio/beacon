@@ -42,15 +42,8 @@ export const BlockEditor = ({
     <div className="flex h-full flex-row" ref={menuContainerRef}>
       <Sidebar isOpen={leftSidebar.isOpen} onClose={leftSidebar.close} editor={editor} />
       <div className="relative flex flex-col flex-1 h-full">
-        <EditorHeader
-          editor={editor}
-          collabState={collabState}
-          users={users}
-          isSidebarOpen={leftSidebar.isOpen}
-          toggleSidebar={leftSidebar.toggle}
-        />
         <MenuBar editor={editor} />
-        <EditorContent editor={editor} className="flex-1 overflow-y-scroll" />
+        <EditorContent editor={editor} className="flex-1" />
         <ContentItemMenu editor={editor} />
         <LinkMenu editor={editor} appendTo={menuContainerRef} />
         <TextMenu editor={editor} />
