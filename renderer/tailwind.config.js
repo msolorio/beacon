@@ -8,8 +8,8 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
     './renderer/app/**/*.{js,ts,jsx,tsx}',
     './renderer/app/home/components/**/*.{js,ts,jsx,tsx}',
-    './renderer/app/home/components/BlockEditorSrc/**/*.{js,ts,jsx,tsx}',
-    './renderer/app/home/components/BlockEditorSrc/styles/**/*.{css}',
+    './renderer/components/tiptap/**/*.{js,ts,jsx,tsx}',
+    './renderer/components/tiptap/**/*.{css}',
   ],
   safelist: ['ProseMirror'],
   theme: {

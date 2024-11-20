@@ -2,8 +2,7 @@
 
 import React, { useState } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
-import TipTap from './components/TipTap'
+import BlockEditorDocument from '../../components/tiptap/editor/app/[room]/page';
 
 export default function HomePage() {
   return (
@@ -12,13 +11,8 @@ export default function HomePage() {
         <title>Home - Nextron (with-tailwindcss)</title>
       </Head>
 
-      {/* <div className="flex flex-col text-center text-2xl w-full"> */}
       <div className="">
-        <TipTap />
-      </div>
-
-      <div className="mt-1 w-full flex-wrap flex justify-center">
-        {/* <Link href="/next">Go to next page</Link> */}
+        <BlockEditorDocument params={{ room: 'test' }} />
       </div>
     </div>
   )
