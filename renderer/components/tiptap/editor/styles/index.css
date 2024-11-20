@@ -1,8 +1,5 @@
 .ProseMirror {
-  /* @apply caret-black dark:caret-white outline-0 pr-8 pl-20 py-16 z-0 lg:pl-8 lg:pr-8 mx-auto max-w-2xl border-4 border-black rounded-lg; */
-
-  /* @apply caret-black dark:caret-white outline-0 pr-[100px] pl-[100px] py-16 z-0 lg:pl-8 lg:pr-8 mx-auto border-4 border-black rounded-lg; */
-  @apply caret-black dark:caret-white outline-0 pr-[100px] pl-[100px] py-16 z-0 mx-auto border-2 border-[#ccc] rounded-lg;
+  @apply caret-black dark:caret-white outline-0 pl-24 pr-4 py-4 z-0 mx-auto flex flex-col h-full;
 
   .selection {
     @apply inline;

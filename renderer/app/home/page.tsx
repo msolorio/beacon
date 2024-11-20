@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Head from 'next/head'
-import BlockEditorDocument from '../../components/tiptap/editor/app/[room]/page';
+import BlockEditorDocument from '@/tiptap/editor/app/[room]/page';
 
 export default function HomePage() {
   return (

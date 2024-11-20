@@ -37,7 +37,7 @@ export const BlockEditor = ({
   return (
     <div className="flex h-full flex-row" ref={menuContainerRef}>
       <Sidebar isOpen={leftSidebar.isOpen} onClose={leftSidebar.close} editor={editor} />
-      <div className="relative flex flex-col flex-1 h-full">
+      <div className="relative flex flex-col flex-1 h-[calc(100vh-80px)]">
         <MenuBar editor={editor} />
         <EditorContent editor={editor} className="flex-1" />
         <ContentItemMenu editor={editor} />

@@ -2,6 +2,8 @@ import path from 'path'
 import { app, ipcMain } from 'electron'
 import serve from 'electron-serve'
 import { createWindow } from './helpers'
+import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
+
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -12,7 +14,11 @@ if (isProd) {
 }
 
 ; (async () => {
-  await app.whenReady()
+  await app.whenReady().then(() => {
+    installExtension(REACT_DEVELOPER_TOOLS)
+      .then((name) => console.log(`Added Extension:  ${name}`))
+      .catch((err) => console.log('An error occurred: ', err));
+  });
 
   const mainWindow = createWindow('main', {
     width: 1000,

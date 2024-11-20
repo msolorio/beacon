@@ -14,7 +14,8 @@ import { Icon } from 'renderer/components/tiptap/editor/components/ui/Icon'
 
 const useDarkmode = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(
-    typeof window !== 'undefined' ? window.matchMedia('(prefers-color-scheme: dark)').matches : false,
+    false
+    // typeof window !== 'undefined' ? window.matchMedia('(prefers-color-scheme: dark)').matches : false,
   )
 
   useEffect(() => {

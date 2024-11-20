@@ -101,6 +101,7 @@
     "autoprefixer": "^10.4.19",
     "electron": "^31.0.1",
     "electron-builder": "^24.13.3",
+    "electron-devtools-installer": "^3.2.0",
     "eslint": "8.45.0",
     "eslint-config-next": "^14.1.0",
     "eslint-plugin-prettier": "^5.2.1",
