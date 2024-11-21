@@ -24,36 +24,36 @@ export const useTextmenuCommands = (editor: Editor) => {
   const onClearHighlight = useCallback(() => editor.chain().focus().unsetHighlight().run(), [editor])
 
   const onSimplify = useCallback(
-    () => editor.chain().focus().aiSimplify({ stream: true, format: 'rich-text' }).run(),
+    () => { },
     [editor],
   )
   const onEmojify = useCallback(
-    () => editor.chain().focus().aiEmojify({ stream: true, format: 'rich-text' }).run(),
+    () => { },
     [editor],
   )
   const onCompleteSentence = useCallback(
-    () => editor.chain().focus().aiComplete({ stream: true, format: 'rich-text' }).run(),
+    () => { },
     [editor],
   )
   const onFixSpelling = useCallback(
-    () => editor.chain().focus().aiFixSpellingAndGrammar({ stream: true, format: 'rich-text' }).run(),
+    () => { },
     [editor],
   )
   const onMakeLonger = useCallback(
-    () => editor.chain().focus().aiExtend({ stream: true, format: 'rich-text' }).run(),
+    () => { },
     [editor],
   )
   const onMakeShorter = useCallback(
-    () => editor.chain().focus().aiShorten({ stream: true, format: 'rich-text' }).run(),
+    () => { },
     [editor],
   )
-  const onTldr = useCallback(() => editor.chain().focus().aiTldr({ stream: true, format: 'rich-text' }).run(), [editor])
+  const onTldr = useCallback(() => { }, [editor])
   const onTone = useCallback(
-    (tone: string) => editor.chain().focus().aiAdjustTone(tone, { stream: true, format: 'rich-text' }).run(),
+    (tone: string) => { },
     [editor],
   )
   const onTranslate = useCallback(
-    (language: Language) => editor.chain().focus().aiTranslate(language, { stream: true, format: 'rich-text' }).run(),
+    (language: Language) => { },
     [editor],
   )
   const onLink = useCallback(

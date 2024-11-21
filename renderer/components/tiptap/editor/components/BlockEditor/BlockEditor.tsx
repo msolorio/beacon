@@ -11,9 +11,8 @@ import { ContentItemMenu } from '../menus/ContentItemMenu'
 import { useSidebar } from '@/tiptap/editor/hooks/useSidebar'
 import * as Y from 'yjs'
 import { TiptapCollabProvider } from '@hocuspocus/provider'
-import MenuBar from '@/tiptap/MenuBar'
 import '@/tiptap/editor/styles/index.css'
-// import { EditorHeader } from './components/EditorHeader'
+import { EditorHeader } from './components/EditorHeader'
 
 export const BlockEditor = ({
   aiToken,
@@ -38,7 +37,13 @@ export const BlockEditor = ({
     <div className="flex h-full flex-row" ref={menuContainerRef}>
       <Sidebar isOpen={leftSidebar.isOpen} onClose={leftSidebar.close} editor={editor} />
       <div className="relative flex flex-col flex-1 h-[calc(100vh-80px)]">
-        {/* <MenuBar editor={editor} /> */}
+        <EditorHeader
+          editor={editor}
+          collabState={collabState}
+          users={users}
+          isSidebarOpen={leftSidebar.isOpen}
+          toggleSidebar={leftSidebar.toggle}
+        />
         <TextMenu editor={editor} />
         <EditorContent editor={editor} className="flex-1" />
         <ContentItemMenu editor={editor} />

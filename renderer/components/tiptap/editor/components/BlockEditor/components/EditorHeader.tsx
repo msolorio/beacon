@@ -37,7 +37,6 @@ export const EditorHeader = ({ editor, collabState, users, isSidebarOpen, toggle
           </Toolbar.Button>
         </div>
       </div>
-      <EditorInfo characters={characters} words={words} collabState={collabState} users={users} />
     </div>
   )
 }

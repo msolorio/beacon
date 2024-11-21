@@ -8,11 +8,7 @@ module.exports = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    appDir: true,
-  },
   webpack: (config) => {
-    // config.resolve.alias['@'] = path.resolve(__dirname, 'renderer/app/home/components/BlockEditorSrc');
     return config
   },
 }
