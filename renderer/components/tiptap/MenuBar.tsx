@@ -80,6 +80,7 @@ const MenuBar = ({ editor }: { editor: Editor }) => {
       </button>
     </div>
   );
+
 };
 
 export default MenuBar;

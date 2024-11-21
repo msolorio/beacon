@@ -38,11 +38,11 @@ export const BlockEditor = ({
     <div className="flex h-full flex-row" ref={menuContainerRef}>
       <Sidebar isOpen={leftSidebar.isOpen} onClose={leftSidebar.close} editor={editor} />
       <div className="relative flex flex-col flex-1 h-[calc(100vh-80px)]">
-        <MenuBar editor={editor} />
+        {/* <MenuBar editor={editor} /> */}
+        <TextMenu editor={editor} />
         <EditorContent editor={editor} className="flex-1" />
         <ContentItemMenu editor={editor} />
         <LinkMenu editor={editor} appendTo={menuContainerRef} />
-        <TextMenu editor={editor} />
         <ColumnsMenu editor={editor} appendTo={menuContainerRef} />
         <TableRowMenu editor={editor} appendTo={menuContainerRef} />
         <TableColumnMenu editor={editor} appendTo={menuContainerRef} />
