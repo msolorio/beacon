@@ -1,9 +1,11 @@
-import path from 'path'
 import { app, ipcMain } from 'electron'
 import serve from 'electron-serve'
-import { createWindow } from './helpers'
 import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
+import { StartupTimer } from './startupTimer';
+import { MainWindow } from './mainWindow';
 
+const startupTimer = new StartupTimer();
+startupTimer.startTimer();
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -14,27 +16,18 @@ if (isProd) {
 }
 
 ; (async () => {
-  await app.whenReady().then(() => {
+  await app.whenReady().then(async () => {
+    const mainWindow = new MainWindow();
+    await mainWindow.loadWindow();
+
+    startupTimer.endTimer();
+    console.log(`Startup Time: ${startupTimer.durationInMillisecs} ms`);
+    ipcMain.handle('get-startup-time', async () => startupTimer.durationInMillisecs);
+
     installExtension(REACT_DEVELOPER_TOOLS)
       .then((name) => console.log(`Added Extension:  ${name}`))
       .catch((err) => console.log('An error occurred: ', err));
   });
-
-  const mainWindow = createWindow('main', {
-    width: 1000,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-    },
-  })
-
-  if (isProd) {
-    await mainWindow.loadURL('app://./home')
-  } else {
-    const port = process.argv[2]
-    await mainWindow.loadURL(`http://localhost:${port}/home`)
-    mainWindow.webContents.openDevTools()
-  }
 })()
 
 app.on('window-all-closed', () => {

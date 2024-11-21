@@ -17,4 +17,8 @@ const handler = {
 
 contextBridge.exposeInMainWorld('ipc', handler)
 
+contextBridge.exposeInMainWorld('electron', {
+  getStartupTime: () => ipcRenderer.invoke('get-startup-time')
+});
+
 export type IpcHandler = typeof handler
