@@ -53,67 +53,8 @@ export default function Document({ params }: { params: { room: string } }) {
   const { room } = params
 
   useEffect(() => {
-    // fetch data
-    const dataFetch = async () => {
-      try {
-        const response = await fetch('/api/collaboration', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-
-        if (!response.ok) {
-          throw new Error('No collaboration token provided, please set TIPTAP_COLLAB_SECRET in your environment')
-        }
-        const data = await response.json()
-
-        const { token } = data
-
-        // set state when the data received
-        setCollabToken(token)
-      } catch (e) {
-        if (e instanceof Error) {
-          console.error(e.message)
-        }
-        setCollabToken(null)
-        return
-      }
-    }
-
-    dataFetch()
-  }, [])
-
-  useEffect(() => {
-    // fetch data
-    const dataFetch = async () => {
-      try {
-        const response = await fetch('/api/ai', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-
-        if (!response.ok) {
-          throw new Error('No AI token provided, please set TIPTAP_AI_SECRET in your environment')
-        }
-        const data = await response.json()
-
-        const { token } = data
-
-        // set state when the data received
-        setAiToken(token)
-      } catch (e) {
-        if (e instanceof Error) {
-          console.error(e.message)
-        }
-        setAiToken(null)
-        return
-      }
-    }
-
-    dataFetch()
+    setCollabToken(null)
+    setAiToken(null)
   }, [])
 
   const ydoc = useMemo(() => new YDoc(), [])
