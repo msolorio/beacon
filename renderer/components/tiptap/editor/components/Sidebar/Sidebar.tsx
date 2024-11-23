@@ -1,7 +1,8 @@
 import { cn } from 'renderer/components/tiptap/editor/lib/utils'
 import { memo, useCallback } from 'react'
 import { Editor } from '@tiptap/react'
-import { TableOfContents } from '../TableOfContents'
+import { FileBrowser } from '@/renderer/app/home/FileBrowser'
+// import { TableOfContents } from '../TableOfContents'
 
 export const Sidebar = memo(
   ({ editor, isOpen, onClose }: { editor: Editor; isOpen?: boolean; onClose: () => void }) => {
@@ -22,7 +23,7 @@ export const Sidebar = memo(
       <div className={windowClassName}>
         <div className="w-full h-full overflow-hidden">
           <div className="w-full h-full p-6 overflow-auto">
-            <p>this is where files go</p>
+            <FileBrowser />
             {/* <TableOfContents onItemClick={handlePotentialClose} editor={editor} /> */}
           </div>
         </div>

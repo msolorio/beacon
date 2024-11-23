@@ -22,6 +22,9 @@
     "paths": {
       "@/tiptap/*": [
         "./renderer/components/tiptap/*"
+      ],
+      "@/renderer/*": [
+        "./renderer/*"
       ]
     }
   },

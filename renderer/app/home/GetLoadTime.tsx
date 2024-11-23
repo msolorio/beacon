@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function GetLoadTime() {
+export function GetLoadTime() {
   const [startupTime, setStartupTime] = useState(null);
 
   const getTime = () => {

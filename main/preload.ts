@@ -1,10 +1,18 @@
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron'
 
+contextBridge.exposeInMainWorld('fs', {
+  readFileTree: async () => ipcRenderer.invoke('fs:readFileTree'),
+})
+
+contextBridge.exposeInMainWorld('electron', {
+  getStartupTime: () => ipcRenderer.invoke('get-startup-time')
+});
+
 const handler = {
-  send(channel: string, value: unknown) {
-    ipcRenderer.send(channel, value)
+  send(channel: string, ...args: Array<unknown>) {
+    ipcRenderer.send(channel, ...args)
   },
-  on(channel: string, callback: (...args: unknown[]) => void) {
+  on(channel: string, callback: (...args: Array<unknown>) => void) {
     const subscription = (_event: IpcRendererEvent, ...args: unknown[]) =>
       callback(...args)
     ipcRenderer.on(channel, subscription)
@@ -16,9 +24,5 @@ const handler = {
 }
 
 contextBridge.exposeInMainWorld('ipc', handler)
-
-contextBridge.exposeInMainWorld('electron', {
-  getStartupTime: () => ipcRenderer.invoke('get-startup-time')
-});
 
 export type IpcHandler = typeof handler

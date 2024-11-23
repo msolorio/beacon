@@ -22,13 +22,17 @@ if (isProd) {
 
     startupTimer.endTimer();
     console.log(`Startup Time: ${startupTimer.durationInMillisecs} ms`);
-    ipcMain.handle('get-startup-time', async () => startupTimer.durationInMillisecs);
+    ipcMain.handle('get-startup-time', () => startupTimer.durationInMillisecs);
 
     installExtension(REACT_DEVELOPER_TOOLS)
       .then((name) => console.log(`Added Extension:  ${name}`))
       .catch((err) => console.log('An error occurred: ', err));
   });
 })()
+
+ipcMain.handle('fs:readFileTree', async () => {
+  return 'Hello World!';
+});
 
 app.on('window-all-closed', () => {
   app.quit()
@@ -37,3 +41,5 @@ app.on('window-all-closed', () => {
 ipcMain.on('message', async (event, arg) => {
   event.reply('message', `${arg} World!`)
 })
+
+
